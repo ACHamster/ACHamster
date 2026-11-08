@@ -23,14 +23,12 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           base: "" # 不生成基础信息卡片，仅生成语言分析
           plugin_languages: yes
-          plugin_languages_analysis_timeout: 15
-          plugin_languages_categories: markup, programming
+          plugin_languages_analysis_timeout: 30
+          plugin_languages_indepth: yes
+          plugin_languages_details: bytes-size, percentage, lines
+          plugin_languages_sections: most-used, recently-used
+          plugin_languages_limit: 10
+          plugin_languages_other: yes
+          plugin_languages_categories: markup, programming, data
           plugin_languages_colors: github
-          plugin_languages_limit: 8
-          plugin_languages_recent_load: 300
-          plugin_languages_sections: most-used
-          plugin_languages_details: bytes-size, percentage
-          # 包含私有仓库
           repositories_affiliations: owner
-          # 排除不需要统计的语言（如根据需要增删）
-          plugin_languages_ignored: html, css
