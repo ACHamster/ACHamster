@@ -1,0 +1,36 @@
+name: Generate Metrics
+
+on:
+  # 每天 UTC 0 点（北京时间早 8 点）自动更新一次
+  schedule:
+    - cron: "0 0 * * *"
+  # 允许在 Actions 页面手动点击触发运行
+  workflow_dispatch:
+  # 推送变更到主分支时触发
+  push:
+    branches: ["main", "master"]
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Generate languages metrics
+        uses: lowlighter/metrics@latest
+        with:
+          filename: github-metrics-languages.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: "" # 不生成基础信息卡片，仅生成语言分析
+          plugin_languages: yes
+          plugin_languages_analysis_timeout: 15
+          plugin_languages_categories: markup, programming
+          plugin_languages_colors: github
+          plugin_languages_limit: 8
+          plugin_languages_recent_load: 300
+          plugin_languages_sections: most-used
+          plugin_languages_details: bytes-size, percentage
+          # 包含私有仓库
+          repositories_affiliations: owner
+          # 排除不需要统计的语言（如根据需要增删）
+          plugin_languages_ignored: html, css

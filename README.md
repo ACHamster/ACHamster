@@ -1,5 +1,7 @@
 ## Hi there 👋
 
+![Top Languages](./github-metrics-languages.svg)
+
 <!--
 **ACHamster/ACHamster** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
