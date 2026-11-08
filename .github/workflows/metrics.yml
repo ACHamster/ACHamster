@@ -28,7 +28,7 @@ jobs:
           plugin_languages_details: bytes-size, percentage, lines
           plugin_languages_sections: most-used, recently-used
           plugin_languages_limit: 10
-          plugin_languages_other: yes
+          plugin_languages_other: no
           plugin_languages_categories: markup, programming, data
           plugin_languages_colors: github
           repositories_affiliations: owner
